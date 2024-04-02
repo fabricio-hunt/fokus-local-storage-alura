@@ -41,11 +41,12 @@ function criarElementoTarefa(tarefa) {
 
     botao.onclick = () => {
        const novaDescricao = prompt("Qual é no novo nome da tarefa? ")
-       paragrafo.textContent = novaDescricao
-       /*localStorage.setItem('tarefas', JSON.stringify(tarefas));*/
-       tarefa.descricao = novaDescricao
-       atualizarTarefas()
-
+       console.log('Novo teste: ', novaDescricao)
+       if (novaDescricao) {
+        paragrafo.textContent = novaDescricao
+        tarefa.descricao = novaDescricao
+        atualizarTarefas()
+       }
     }
 
     const imagemBotao = document.createElement('img');
