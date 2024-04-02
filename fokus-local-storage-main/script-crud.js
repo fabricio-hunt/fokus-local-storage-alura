@@ -1,7 +1,7 @@
-const btnAdicionarTarefa = document.querySelector('.app__button--add-task');
-const formAdicionarTarefa = document.querySelector('.app__form-add-task.hidden');
-const textarea = document.querySelector('.app__form-textarea');
-const ulTarefas = document.querySelector('.app__section-task-list');
+const btnAdicionarTarefa = document.querySelector('.app__button--add-task')
+const formAdicionarTarefa = document.querySelector('.app__form-add-task.hidden')
+const textarea = document.querySelector('.app__form-textarea')
+const ulTarefas = document.querySelector('.app__section-task-list')
 
 const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
 
@@ -78,9 +78,26 @@ formAdicionarTarefa.addEventListener('submit', (evento) => {
     localStorage.setItem('tarefas', JSON.stringify(tarefas));
     textarea.value = ''
     formAdicionarTarefa.classList.add('hidden')
-});
+})
+
+
+
+
+const btnCancelar = document.querySelector('.app__form-footer__button--cancel');
+
+
+const limparFormulario = () => {
+    textarea.value = '';  
+    formularioTarefa.classList.add('hidden'); 
+}
+
+btnCancelar.addEventListener('click', limparFormulario);
+
+
+
 
 tarefas.forEach(tarefa => {
     const elementoTarefa = criarElementoTarefa(tarefa);
     ulTarefas.appendChild(elementoTarefa);
 });
+
